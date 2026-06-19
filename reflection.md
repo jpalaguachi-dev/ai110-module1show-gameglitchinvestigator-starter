@@ -3,10 +3,19 @@
 Answer each question in 3 to 5 sentences. Be specific and honest about what actually happened while you worked. This is about your process, not trying to sound perfect.
 
 ## 1. What was broken when you started?
-
 - What did the game look like the first time you ran it?
 - List at least two concrete bugs you noticed at the start  
   (for example: "the hints were backwards").
+
+The first glitch that I found was that the range did not change with the difficulty 
+because when switching from Normal to Easy, the range was still 1-100 instead of 
+1-20, and the game was letting me input guesses higher or lower than the actual 
+range. The second glitch that I found was with the hints, as when I inputted a 
+guess that was higher than the secret number, I was told to go even higher. The 
+third glitch is that when pressing the New Game button when finishing a session, 
+the game never restarts and keeps saying game over. The fourth glitch is that the 
+number of attempts is wrong because when the difficulty level is hard the game 
+gives the player 5 attempts, I was only allowed 4.
 
 **Bug Reproduction Log**
 
