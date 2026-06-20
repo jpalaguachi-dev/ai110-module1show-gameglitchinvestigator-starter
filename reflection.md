@@ -25,8 +25,8 @@ Document at least 3 bugs you found. Add rows as needed.
 |-------|-------------------|-----------------|------------------------|
 |60|Hint: "GO LOWER!"|Hint: "GO HIGHER!"|None|    
 |Chose "Easy" difficulty.|"Guess a number between 1 and 20." and the secret number to be in range.|"Guess a number between 1 and 100." and the secret number was out of range.|None|
-|Pressed the "New Game" button|Game to restart and allow me to input guesses.|Game never restarted and I was not allowed to input guesses.|None|
-|Input a guess|"Attempts left: 1"|"Attempts left: 0"|None| 
+|Pressed the "New Game" button.|Game to restart and allow me to input guesses.|Game never restarted and I was not allowed to input guesses.|None|
+|Input a guess.|"Attempts left: 1"|"Attempts left: 0"|None| 
 
 ---
 
