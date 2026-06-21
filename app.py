@@ -27,6 +27,9 @@ low, high = get_range_for_difficulty(difficulty)
 st.sidebar.caption(f"Range: {low} to {high}")
 st.sidebar.caption(f"Attempts allowed: {attempt_limit}")
 
+if "difficulty" not in st.session_state:
+    st.session_state.difficulty = difficulty
+
 if "secret" not in st.session_state:
     st.session_state.secret = random.randint(low, high)
 
@@ -41,6 +44,22 @@ if "status" not in st.session_state:
 
 if "history" not in st.session_state:
     st.session_state.history = []
+
+if "hint" not in st.session_state:
+    st.session_state.hint = None
+
+if "error" not in st.session_state:
+    st.session_state.error = None
+
+if st.session_state.difficulty != difficulty:
+    st.session_state.difficulty = difficulty
+    st.session_state.secret = random.randint(low, high)
+    st.session_state.attempts = 0
+    st.session_state.score = 0
+    st.session_state.status = "playing"
+    st.session_state.history = []
+    st.session_state.hint = None
+    st.session_state.error = None
 
 st.subheader("Make a guess")
 
@@ -69,12 +88,19 @@ with col2:
 with col3:
     show_hint = st.checkbox("Show hint", value=True)
 
+if st.session_state.hint:
+    st.warning(st.session_state.hint)
+if st.session_state.error:
+    st.error(st.session_state.error)
+
 if new_game:
     st.session_state.attempts = 0
     st.session_state.secret = random.randint(low, high)
     st.session_state.status = "playing"
     st.session_state.history = []
     st.session_state.score = 0
+    st.session_state.hint = None
+    st.session_state.error = None
     st.success("New game started.")
     st.rerun()
 
@@ -92,24 +118,22 @@ if submit:
 
     if not ok:
         st.session_state.history.append(raw_guess)
-        st.error(err)
+        st.session_state.hint = None
+        st.session_state.error = err
+        st.rerun()
     else:
+        st.session_state.error = None
         st.session_state.history.append(guess_int)
 
-        if st.session_state.attempts % 2 == 0:
-            secret = str(st.session_state.secret)
-        else:
-            secret = st.session_state.secret
+        secret = st.session_state.secret
 
         outcome, message = check_guess(guess_int, secret)
 
-        if show_hint:
-            st.warning(message)
+        st.session_state.hint = message if show_hint else None
 
         st.session_state.score = update_score(
-            current_score=st.session_state.score,
-            outcome=outcome,
             attempt_number=st.session_state.attempts,
+            attempt_limit=attempt_limit,
         )
 
         if outcome == "Win":
@@ -122,11 +146,14 @@ if submit:
         else:
             if st.session_state.attempts >= attempt_limit:
                 st.session_state.status = "lost"
+                st.session_state.score = 0
                 st.error(
                     f"Out of attempts! "
                     f"The secret was {st.session_state.secret}. "
                     f"Score: {st.session_state.score}"
                 )
+            else:
+                st.rerun()
 
 st.divider()
 st.caption("Built by an AI that claims this code is production-ready.")
