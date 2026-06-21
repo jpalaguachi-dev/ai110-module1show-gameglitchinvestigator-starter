@@ -95,6 +95,9 @@ if st.session_state.error:
 
 if new_game:
     st.session_state.attempts = 0
+    """
+    Fix: Made sure the secret number is within the range of difficulty level using agent mode.
+    """
     st.session_state.secret = random.randint(low, high)
     st.session_state.status = "playing"
     st.session_state.history = []

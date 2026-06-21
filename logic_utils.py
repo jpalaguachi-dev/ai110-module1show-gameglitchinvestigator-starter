@@ -1,3 +1,10 @@
+"""
+Fix: Refactored all the logic one by one into logic_utils.py making sure nothing broke using agent mode
+"""
+
+"""
+Fix: Changed the range from being hardcoded to changing based on the difficulty level and this was done using agent mode.
+"""
 def get_range_for_difficulty(difficulty: str):
     """Return (low, high) inclusive range for a given difficulty."""
     if difficulty == "Easy":
@@ -31,7 +38,9 @@ def parse_guess(raw: str):
 
     return True, value, None
 
-
+"""
+Fix: Corrected hints making sure that outputs of the conditional statments are correct using agent mode.
+"""
 def check_guess(guess, secret):
     """
     Compare guess to secret and return (outcome, message).
@@ -54,7 +63,9 @@ def check_guess(guess, secret):
             return "Too High", "📉 Go LOWER!"
         return "Too Low", "📈 Go HIGHER!"
 
-
+"""
+Fix: Improved the score logic of the game using agent mode.
+"""
 def update_score(attempt_number: int, attempt_limit: int):
     """Update score based on outcome and attempt number."""
     return round(((attempt_limit - attempt_number + 1) / attempt_limit) * 100)

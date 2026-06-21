@@ -36,6 +36,13 @@ Document at least 3 bugs you found. Add rows as needed.
 - Give one example of an AI suggestion that was correct (including what the AI suggested and how you verified the result).
 - Give one example of an AI suggestion that was incorrect or misleading (including what the AI suggested and how you verified the result).
 
+I used Claude Code on this project and one example of an AI suggestion that was correct was when it told me that the hints were reversed and it told me 
+what lines to fix. This was a simple fix but something that could have easily been overlooked and to check I tried the program in the browser and it 
+worked correctly. An example of an AI suggestion that was misleading and incorrect was when I wanted to make it possible for the number of attempts to 
+update when clicking the submit guess button instead of when you press enter to input the next guess. It suggested to change the placement of the 
+buttons, which did not do anything. To fix this I had to reverse the action and then explain in more detail what I wanted to change. This resulted in correct changes that I check by using the program in browser.
+
+
 ---
 
 ## 3. Debugging and testing your fixes
@@ -44,6 +51,12 @@ Document at least 3 bugs you found. Add rows as needed.
 - Describe at least one test you ran (manual or using pytest)  
   and what it showed you about your code.
 - Did AI help you design or understand any tests? How?
+
+To decide wether a bug was really fixed I tested it out by using the program in the browser. An example of this is when I 
+was fixing the logic for the hints and the first fix did not work as expected because when I was inputting the number 100 
+as a guess it told me to go higer and then I did it again for a second time and it told me to go lower. I explained the bug 
+to the ai agent and it suggested to take out a line that converted numbers to strings if it was a even number attempt. I 
+accpeted the change and tried it in the browser and it worked as expected.
 
 ---
 
