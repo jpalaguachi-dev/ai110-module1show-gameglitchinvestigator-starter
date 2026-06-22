@@ -64,6 +64,11 @@ accpeted the change and tried it in the browser and it worked as expected.
 
 - How would you explain Streamlit "reruns" and session state to a friend who has never used Streamlit?
 
+This project showed me that Streamlit is a tool that can make it easy to make programs that have both a frontend and a backend. I also learned that
+Streamlit reruns the whole program everytime a change happens to the program like a button being pressed or inputting an answer into a prompt. I also 
+learned that session states can be used in Streamlit to allow data to be saved when a program is being rerun. Session states are important because 
+without it, data before the rerun cannot be used after it because it was not saved.
+
 ---
 
 ## 5. Looking ahead: your developer habits
@@ -72,3 +77,10 @@ accpeted the change and tried it in the browser and it worked as expected.
   - This could be a testing habit, a prompting strategy, or a way you used Git.
 - What is one thing you would do differently next time you work with AI on a coding task?
 - In one or two sentences, describe how this project changed the way you think about AI generated code.
+
+A habit from this project that I want to reuse in future labs or projects is regularly committing any big changes that I make to a project to Git. Also, 
+committing changes that I make when I am finish for the day to Git. I would make sure to be more detailed when explaining a bug becuase it sometimes made 
+suggestions that had nothing to do with the bug. When I explained it in more detail and gave it more context it was able to figure it out more easily and 
+gave me the right suggestions. This project changed the way I think about AI generated code becuase it made me realize that AI does not get everything
+correct in one try. The AI suggestions can be misleading or can cause another bug, which means that you have to give the agent more context or explain in 
+more detail what is wrong. 
